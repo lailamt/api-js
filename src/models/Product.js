@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate');
 
 //define as colunas do BD
 const ProductSchema = new mongoose.Schema({
@@ -20,4 +21,7 @@ const ProductSchema = new mongoose.Schema({
     },
 });
 
+ProductSchema.plugin(mongoosePaginate);
+
+//registra um model (coluna) na aplicação
 mongoose.model('Product', ProductSchema);
